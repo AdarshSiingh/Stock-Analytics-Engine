@@ -13,7 +13,8 @@ export function useStockData(ticker, range) {
     setError(null)
     setData(null)
 
-    fetch(`http://localhost:4000/api/analyse/${ticker}?range=${range}`)
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+    fetch(`${API_URL}/api/analyse/${ticker}?range=${range}`)
       .then(res => {
         if (!res.ok) throw new Error(`Server error: ${res.status}`)
         return res.json()
