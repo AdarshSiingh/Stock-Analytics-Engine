@@ -6,7 +6,12 @@ import analyseRouter from './routes/analyse.js';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://stock-analytics-engine.vercel.app'
+  ]
+}));
 app.use(express.json());
 
 app.use('/api/analyse', analyseRouter);
