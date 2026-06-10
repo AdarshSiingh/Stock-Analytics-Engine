@@ -6,12 +6,7 @@ from sqlalchemy import create_engine
 from dotenv import dotenv_values
 
 config = dotenv_values("../server/.env")
-
-connection_string = (
-    f"mysql+pymysql://{config['DB_USER']}:{config['DB_PASSWORD']}"
-    f"@{config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}"
-)
-engine = create_engine(connection_string)
+engine = create_engine(config["DATABASE_URL"])
 
 
 def load_stock_data(ticker: str) -> pd.DataFrame:

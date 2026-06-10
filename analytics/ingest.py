@@ -6,15 +6,7 @@ import os
 from dotenv import dotenv_values
 
 config = dotenv_values("../server/.env")
-
-DB_HOST     = config["DB_HOST"]
-DB_PORT     = config["DB_PORT"]
-DB_USER     = config["DB_USER"]
-DB_PASSWORD = config["DB_PASSWORD"]
-DB_NAME     = config["DB_NAME"]
-
-connection_string = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-engine = create_engine(connection_string)
+engine = create_engine(config["DATABASE_URL"])
 
 def ingest_stock(ticker: str, period: str = "6mo"):
     print(f"Fetching data for {ticker}...")

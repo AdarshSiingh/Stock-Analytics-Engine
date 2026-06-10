@@ -8,7 +8,10 @@ const __dirname  = path.dirname(__filename);
 
 const ANALYTICS_DIR = path.join(__dirname, '..', '..', 'analytics');
 
-const PYTHON_PATH = path.join(ANALYTICS_DIR, 'venv', 'bin', 'python3');
+const IS_PRODUCTION = process.env.NODE_ENV === 'production' || process.env.RENDER
+const PYTHON_PATH = IS_PRODUCTION 
+                    ? 'python3'
+                    : path.join(ANALYTICS_DIR, 'venv', 'bin', 'python3');
 
 
 export function runPython(scriptName, args = []) {
