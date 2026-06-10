@@ -126,9 +126,20 @@ export default function App() {
        </div>
       )}
       {error && (
-        <div style={{ color: '#ef4444', fontSize: '14px', padding: '1rem 0' }}>
-          Error: {error}
-        </div>
+      <div style={{
+      background: '#1a0a0a',
+      border: '0.5px solid #3a1a1a',
+      borderRadius: '10px',
+      padding: '14px 16px',
+      marginBottom: '1rem'
+      }}>
+     <div style={{ color: '#ef4444', fontSize: '13px', fontWeight: '500', marginBottom: '4px' }}>
+      Ticker not found
+     </div>
+     <div style={{ color: '#666', fontSize: '12px' }}>
+      Currently supported tickers: AAPL, MSFT, TSLA, INFY. Try one of these or add more tickers by running ingest.py.
+     </div>
+     </div>
       )}
 
       {data && !loading && (
