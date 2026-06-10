@@ -2,11 +2,12 @@
 import pandas as pd
 import numpy as np
 import ta
+import os
 from sqlalchemy import create_engine
 from dotenv import dotenv_values
 
-config = dotenv_values("../server/.env")
-engine = create_engine(config["DATABASE_URL"])
+DATABASE_URL = os.environ.get("DATABASE_URL") or dotenv_values("../server/.env").get("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
 
 
 def load_stock_data(ticker: str) -> pd.DataFrame:

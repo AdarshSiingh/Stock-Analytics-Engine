@@ -19,7 +19,12 @@ export function runPython(scriptName, args = []) {
 
     const scriptPath = path.join(ANALYTICS_DIR, scriptName);
 
-    const py = spawn(PYTHON_PATH, [scriptPath, ...args]);
+    const py = spawn(PYTHON_PATH, [scriptPath, ...args], {
+   env: {
+    ...process.env,
+    DATABASE_URL: process.env.DATABASE_URL
+    }
+    });
 
     let output = '';
     let errorOutput = '';
