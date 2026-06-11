@@ -52,34 +52,36 @@ The Node.js server acts as a bridge — it spawns Python as a child process, cap
 
 ## Folder structure
 
+```
 stock-analytics-engine/
-├── analytics/              # Python analytics core
-│   ├── engine.py           # StockAnalytics class — all indicators
-│   ├── ingest.py           # ETL pipeline — fetch and store data
-│   ├── run.py              # Entry point called by Node.js
-│   ├── correlate.py        # Multi-stock correlation matrix
+├── analytics/
+│   ├── engine.py
+│   ├── ingest.py
+│   ├── run.py
+│   ├── correlate.py
 │   └── requirements.txt
-├── server/                 # Node.js / Express backend
-│   ├── index.js            # Main server
+├── server/
+│   ├── index.js
 │   ├── routes/
-│   │   └── analyse.js      # /api/analyse/:ticker route
+│   │   └── analyse.js
 │   └── utils/
-│       └── runPython.js    # child_process bridge
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── hooks/
-│   │   │   └── useStockData.js
-│   │   └── components/
-│   │       ├── CandlestickChart.jsx
-│   │       ├── IndicatorPanel.jsx
-│   │       ├── SummaryCards.jsx
-│   │       └── ChartGuide.jsx
-└── notebooks/              # Jupyter notebooks
-├── 01_data_exploration.ipynb
-├── 02_indicators.ipynb
-├── 03_signals.ipynb
-└── 04_correlation.ipynb
+│       └── runPython.js
+├── client/
+│   └── src/
+│       ├── App.jsx
+│       ├── hooks/
+│       │   └── useStockData.js
+│       └── components/
+│           ├── CandlestickChart.jsx
+│           ├── IndicatorPanel.jsx
+│           ├── SummaryCards.jsx
+│           └── ChartGuide.jsx
+└── notebooks/
+    ├── 01_data_exploration.ipynb
+    ├── 02_indicators.ipynb
+    ├── 03_signals.ipynb
+    └── 04_correlation.ipynb
+```
 ---
 
 ## Technical indicators explained
@@ -140,7 +142,7 @@ pip install -r requirements.txt
 
 Create `server/.env`:
 PORT=4000
-DATABASE_URL=postgresql://neondb_owner:npg_Sms1OEo2jVWH@ep-holy-haze-aoukw11h-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+DATABASE_URL=your_neon_postgresql_connection_string
 **4. Ingest stock data**
 ```bash
 cd analytics
