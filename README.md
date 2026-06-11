@@ -138,12 +138,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**3. Set up environment variables**
+## 3. Set up environment variables
 
 Create `server/.env`:
+
+```env
 PORT=4000
 DATABASE_URL=your_neon_postgresql_connection_string
-**4. Ingest stock data**
+```
+
+## 4. Ingest stock data
 ```bash
 cd analytics
 source venv/bin/activate
