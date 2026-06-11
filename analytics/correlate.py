@@ -1,4 +1,4 @@
-# analytics/correlate.py
+
 
 import sys
 import json
@@ -40,10 +40,7 @@ def load_closing_prices(tickers: list) -> pd.DataFrame:
 
 
 def compute_correlation(tickers: list) -> dict:
-    """
-    Computes Pearson correlation between all ticker pairs.
-    Returns both the matrix and individual pair insights.
-    """
+   
     df = load_closing_prices(tickers)
 
 

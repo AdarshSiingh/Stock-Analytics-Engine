@@ -24,7 +24,7 @@ class StockAnalytics:
         self.df = load_stock_data(self.ticker)
 
         if self.df.empty:
-    raise ValueError(f"No data found for {self.ticker}. Only AAPL, MSFT, TSLA and INFY are currently supported.")
+            raise ValueError(f"No data found for {self.ticker}. Only AAPL, MSFT, TSLA and INFY are currently supported.")
 
         print(f"Loaded {len(self.df)} rows for {self.ticker}")
 
