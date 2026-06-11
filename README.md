@@ -34,18 +34,19 @@ A full-stack data analytics platform that fetches real stock market data, comput
 
 ## Project architecture
 
-## Project architecture
-
-- User searches ticker
-  - React frontend (Vercel)
-    - HTTP request
-      - Node.js / Express (Render)
-        - child_process.spawn
-          - Python analytics engine
-            - SQLAlchemy
-              - PostgreSQL database (Neon)
-                - computed JSON
-                  - Response returned to React
+```text
+User searches ticker
+↓
+React frontend (Vercel)
+↓ HTTP request
+Node.js / Express (Render)
+↓ child_process.spawn
+Python analytics engine
+↓ SQLAlchemy
+PostgreSQL database (Neon)
+↓ computed JSON
+Back up the chain to React
+```
 
 The Node.js server acts as a bridge — it spawns Python as a child process,
 captures the JSON output from stdout, and returns it as an API response.
